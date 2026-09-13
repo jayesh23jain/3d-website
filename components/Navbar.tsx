@@ -1,17 +1,9 @@
 'use client';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { useState, useEffect } from 'react';
+import { motion, useScroll } from 'framer-motion';
 import MobileMenu from './MobileMenu';
 
 export default function Navbar() {
   const { scrollYProgress } = useScroll();
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    return scrollYProgress.on('change', (latest) => {
-      setIsScrolled(latest > 0.05);
-    });
-  }, [scrollYProgress]);
 
   return (
     <motion.nav

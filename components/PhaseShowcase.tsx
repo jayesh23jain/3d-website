@@ -1,5 +1,4 @@
 'use client';
-import { motion } from 'framer-motion';
 import PhaseCard from './PhaseCard';
 import TextReveal from './TextReveal';
 import { buildPhases } from '@/data/phases';

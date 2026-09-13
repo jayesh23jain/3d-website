@@ -37,7 +37,7 @@ export default function TextReveal({
         type: 'spring',
         damping: 12,
         stiffness: 200,
-      } as any,
+      },
     },
   };
 

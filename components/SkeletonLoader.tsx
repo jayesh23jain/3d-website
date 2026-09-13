@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, Transition } from 'framer-motion';
 import React from 'react';
 
 export default function SkeletonLoader({
@@ -10,7 +10,7 @@ export default function SkeletonLoader({
   count?: number;
   type?: 'card' | 'text' | 'circular';
 }) {
-  const shimmer = {
+  const shimmer: { animate: { backgroundPosition: string[] }; transition: Transition } = {
     animate: {
       backgroundPosition: ['0% 0%', '100% 0%'],
     },
@@ -29,7 +29,7 @@ export default function SkeletonLoader({
             key={i}
             className="bg-gradient-to-r from-[#1a1e28] via-[#2a2e38] to-[#1a1e28] bg-[length:200%_100%] rounded-lg"
             animate={shimmer.animate}
-            transition={shimmer.transition as any}
+            transition={shimmer.transition}
             style={{ height: '200px' }}
           />
         ))}
@@ -45,7 +45,7 @@ export default function SkeletonLoader({
             key={i}
             className="bg-gradient-to-r from-[#1a1e28] via-[#2a2e38] to-[#1a1e28] bg-[length:200%_100%] rounded"
             animate={shimmer.animate}
-            transition={shimmer.transition as any}
+            transition={shimmer.transition}
             style={{ height: '16px', width: i === count - 1 ? '60%' : '100%' }}
           />
         ))}
@@ -61,7 +61,7 @@ export default function SkeletonLoader({
             key={i}
             className="bg-gradient-to-r from-[#1a1e28] via-[#2a2e38] to-[#1a1e28] bg-[length:200%_100%] rounded-full"
             animate={shimmer.animate}
-            transition={shimmer.transition as any}
+            transition={shimmer.transition}
             style={{ width: '80px', height: '80px', flexShrink: 0 }}
           />
         ))}

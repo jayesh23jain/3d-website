@@ -25,7 +25,7 @@ export default function HeroCanvasAnimation() {
   useEffect(() => {
     const loadImages = async () => {
       const imagePromises = Array.from({ length: TOTAL_FRAMES }, (_, i) => {
-        return new Promise<HTMLImageElement>((resolve, reject) => {
+        return new Promise<HTMLImageElement>((resolve) => {
           const img = new Image();
           img.src = `${FRAME_PATH}/ezgif-frame-${String(i + 1).padStart(3, '0')}.jpg`;
           img.onload = () => {
